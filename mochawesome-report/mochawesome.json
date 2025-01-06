@@ -1,0 +1,138 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-01-06T17:38:51.768Z",
+    "end": "2025-01-06T17:40:09.218Z",
+    "duration": 77450,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e82ec3ad-1e46-4cbf-a220-a426feb60c34",
+      "title": "",
+      "fullFile": "cypress\\e2e\\penjualan.cy.js",
+      "file": "cypress\\e2e\\penjualan.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d14198a0-2c13-4183-a0e1-c6e263898aa7",
+          "title": "Jubelio Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "1. Login",
+              "fullTitle": "Jubelio Test 1. Login",
+              "timedOut": null,
+              "duration": 24957,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Selamat Datang di Trial Jubelio').should('be.visible');\ncy.wait(2000);\ncy.screenshot('login', {\n  capture: 'viewport'\n});",
+              "err": {},
+              "uuid": "c472a6c3-d38c-4f9f-a7b5-25e33701cf69",
+              "parentUUID": "d14198a0-2c13-4183-a0e1-c6e263898aa7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "2. Create Penjualan",
+              "fullTitle": "Jubelio Test 2. Create Penjualan",
+              "timedOut": null,
+              "duration": 23656,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(':nth-child(4) > .false > .mr-2').click(); //click penjualan\ncy.get('[href=\"/sales/transactions\"] > :nth-child(1) > .d-flex > .flex-grow-1 > .font-weight-bold').click(); //click transaksi penjualan\ncy.get('[style=\"position: absolute; right: 35px; top: 60px; z-index: 99999; width: 400px; background: rgb(255, 255, 255); height: calc(100% - 130px);\"] > .MuiButton-root').click(); //click >\ncy.get('.MuiButton-root > .d-flex').should('be.visible').click(); //click tambah baru\ncy.get('.css-53jtis > .MuiAutocomplete-root > .MuiFormControl-root > .MuiOutlinedInput-root > .MuiAutocomplete-endAdornment > .MuiButtonBase-root').should('be.visible').click(); //pilih pelanggan\ncy.get('#mui-23-option-6').click();\ncy.get('.css-s3zakr > .MuiAutocomplete-root > .MuiFormControl-root > .MuiOutlinedInput-root').click(); //pilih lokasi\ncy.get('#mui-30-option-0').click();\ncy.get('.css-1o9xw9j > .MuiButton-root').click(); //click tambah baru\n//cy.get('[data-index=\"0\"] > [style=\"height: 74px;\"] > .css-1rjpksd').click(); //click produk1\ncy.get('[data-index=\"1\"] > [style=\"height: 74px;\"] > .css-1rjpksd').scrollIntoView().should('be.visible').click();\ncy.get('.d-flex > div > .MuiButton-root').click(); //click simpan\ncy.wait(2000);\ncy.screenshot('create_order', {\n  capture: 'viewport'\n});",
+              "err": {},
+              "uuid": "7fe61ed7-cb96-4244-a60b-4eca29cb5d1a",
+              "parentUUID": "d14198a0-2c13-4183-a0e1-c6e263898aa7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "3. Search Pesanan",
+              "fullTitle": "Jubelio Test 3. Search Pesanan",
+              "timedOut": null,
+              "duration": 26727,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//search pesanan by nama\ncy.get(':nth-child(4) > .false > .mr-2').click(); //click penjualan\ncy.get('[href=\"/sales/transactions\"] > :nth-child(1) > .d-flex > .flex-grow-1 > .font-weight-bold').click(); //click transaksi penjualan\ncy.get('[data-testid=\"ChevronRightIcon\"]').click(); //perbesar\ncy.get('.MuiTabs-flexContainer > :nth-child(1)').click(); //click semua pesanan\ncy.get('#mui-9').type('BLIBLI'); //ketik pesanan blibli\ncy.get('.css-rfnosa > .MuiButton-root').click(); //click terapkan\ncy.contains('BLIBLI').should('be.visible');\ncy.wait(2000);\ncy.screenshot('search_by_name', {\n  capture: 'viewport'\n});\n//search pesanan by sku/produk\ncy.get('.mt-3 > .MuiFormControl-root > .MuiFormGroup-root > :nth-child(2) > .MuiRadio-root > .PrivateSwitchBase-input').click(); //click sku/produk\ncy.get('#mui-9').clear().type('0003'); //ketik no sku\ncy.contains('SO-000000002').should('be.visible');\n//search pesanan by toko\ncy.get('.mt-3 > .MuiFormControl-root > .MuiFormGroup-root > :nth-child(1) > .MuiRadio-root > .PrivateSwitchBase-input').click(); //click pesanan\ncy.get('#mui-9').clear();\ncy.get(':nth-child(9) > .select-filter').click(); //click pilih toko\ncy.get(':nth-child(2) > .MuiFormControlLabel-root > .MuiCheckbox-root > .PrivateSwitchBase-input').click(); //pilih toko default\ncy.get('.css-rfnosa > .MuiButton-root').click(); //click terapkan\ncy.get('#table-container-grid').should('be.visible');\ncy.wait(2000);\ncy.get('#table-container-grid').scrollIntoView();\ncy.screenshot('search_by_toko', {\n  capture: 'viewport'\n});",
+              "err": {},
+              "uuid": "6b41b171-1779-4fd3-9c76-78bab764fb1c",
+              "parentUUID": "d14198a0-2c13-4183-a0e1-c6e263898aa7",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c472a6c3-d38c-4f9f-a7b5-25e33701cf69",
+            "7fe61ed7-cb96-4244-a60b-4eca29cb5d1a",
+            "6b41b171-1779-4fd3-9c76-78bab764fb1c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 75340,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
